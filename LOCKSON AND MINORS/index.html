@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lockson & Minors Co. Ltd | Leading Engineering Solutions in Ghana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #ffd700;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --danger: #ff6b6b;
+            --success: #27ae60;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #6c757d;
+        }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        overflow-x: hidden;
+        background-color: var(--white);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        padding: 15px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height:200px; /* Adjust height as needed */
+    width: auto;
+    max-width: 200px; /* Prevent logo from being too wide */
+}
+
+/* Alternative: If you want both image and text */
+.logo-with-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo-with-text img {
+    height: 100px;
+    width: auto;
+     max-width: 200px;
+}
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 8px 0;
+    }
+
+    .nav-menu a:hover {
+        color: var(--accent);
+    }
+
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 200px 0 120px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease;
+    }
+
+    .hero h1 {
+        font-size: 56px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        font-weight: 700;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-button {
+        background: linear-gradient(45deg, var(--danger), #ee5a52);
+        color: white;
+        padding: 15px 40px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .cta-button.secondary {
+        background: transparent;
+        border: 2px solid white;
+        box-shadow: none;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    }
+
+    .cta-button.secondary:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    /* Stats Section */
+    .stats {
+        background: linear-gradient(135deg, var(--dark) 0%, #3498db 100%);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .stat-item {
+        padding: 30px;
+        border-radius: 15px;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-item i {
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: var(--accent);
+    }
+
+    .stat-item h3 {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: var(--accent);
+        font-weight: 700;
+    }
+
+    .stat-item p {
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    /* Services Section */
+    .services {
+        padding: 100px 0;
+        background: var(--light);
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: var(--dark);
+        position: relative;
+        font-weight: 700;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: var(--text-light);
+        margin-bottom: 50px;
+        font-size: 18px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .service-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        border: 1px solid #e9ecef;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 0;
+        background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        transition: height 0.3s ease;
+    }
+
+    .service-card:hover::before {
+        height: 100%;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+        color: var(--primary);
+    }
+
+    .service-card h3 {
+        color: var(--dark);
+        margin-bottom: 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .service-card p {
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .service-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .service-link i {
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .service-link:hover {
+        color: var(--secondary);
+    }
+
+    .service-link:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+        padding: 100px 0;
+        background: white;
+    }
+
+    .portfolio-controls {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+    }
+
+    .portfolio-btn {
+        padding: 12px 30px;
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .portfolio-btn.active,
+    .portfolio-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+    }
+
+    .upload-section {
+        background: var(--light);
+        padding: 40px;
+        border-radius: 15px;
+        margin-bottom: 50px;
+        text-align: center;
+        border: 2px dashed var(--primary);
+        transition: all 0.3s ease;
+    }
+
+    .upload-section:hover {
+        border-color: var(--secondary);
+        background: #f0f4f8;
+    }
+
+    .upload-section h3 {
+        color: var(--dark);
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .upload-controls {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .file-input-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .file-input-wrapper input[type=file] {
+        position: absolute;
+        left: -9999px;
+    }
+
+    .file-input-label {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .file-input-label:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+    }
+
+    .category-select {
+        padding: 12px 20px;
+        border: 2px solid var(--primary);
+        border-radius: 25px;
+        background: white;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    .category-select:focus {
+        box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+    }
+
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .portfolio-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background: white;
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    .portfolio-info h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .portfolio-info p {
+        font-size: 14px;
+        opacity: 0.9;
+        margin-bottom: 15px;
+    }
+
+    .portfolio-category {
+        background: var(--accent);
+        color: var(--dark);
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .portfolio-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .portfolio-action {
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .portfolio-action:hover {
+        background: rgba(255,255,255,0.3);
+        transform: translateY(-2px);
+    }
+
+    .portfolio-action.delete {
+        background: rgba(255, 107, 107, 0.8);
+    }
+
+    .portfolio-action.delete:hover {
+        background: rgba(255, 107, 107, 1);
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+        position: relative;
+        margin: 5% auto;
+        width: 90%;
+        max-width: 800px;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+        padding: 20px 30px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .modal-body {
+        padding: 30px;
+    }
+
+    .modal-body img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .modal-info h4 {
+        color: var(--dark);
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .modal-info p {
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        color: var(--text-light);
+    }
+
+    .empty-state i {
+        font-size: 80px;
+        margin-bottom: 20px;
+        color: var(--primary);
+        opacity: 0.3;
+    }
+
+    .empty-state h3 {
+        color: var(--dark);
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .empty-state p {
+        font-size: 16px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* About Section */
+    .about {
+        padding: 100px 0;
+        background: var(--light);
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .about-text h2 {
+        font-size: 40px;
+        color: var(--dark);
+        margin-bottom: 30px;
+        line-height: 1.3;
+        font-weight: 700;
+    }
+
+    .about-text p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .about-image {
+        position: relative;
+        height: 450px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-image i {
+        font-size: 80px;
+        color: white;
+        opacity: 0.3;
+    }
+
+    .about-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+        color: var(--dark);
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .feature-text p {
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+    }
+
+    .contact .section-title {
+        color: white;
+    }
+
+    .contact .section-title::after {
+        background: var(--accent);
+    }
+
+    .contact .section-subtitle {
+        color: rgba(255,255,255,0.8);
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        margin-top: 50px;
+    }
+
+    .contact-info {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .contact-info h3 {
+        color: white;
+        margin-bottom: 25px;
+        font-size: 28px;
+        position: relative;
+        padding-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .contact-info h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--accent);
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateX(5px);
+    }
+
+    .contact-item i {
+        font-size: 24px;
+        margin-right: 15px;
+        color: var(--accent);
+        flex-shrink: 0;
+    }
+
+    .contact-details h4 {
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .contact-details p, 
+    .contact-details a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+    }
+
+    .contact-details a:hover {
+        color: white;
+    }
+
+    .contact-form {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h3 {
+        color: var(--dark);
+        margin-bottom: 25px;
+        font-size: 28px;
+        position: relative;
+        padding-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .contact-form h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+    }
+
+    .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .submit-btn {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--dark);
+        color: white;
+        padding: 60px 0 30px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 20px;
+        color: var(--accent);
+        font-size: 20px;
+        position: relative;
+        padding-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .footer-section h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--accent);
+    }
+
+    .footer-section p {
+        color: #bdc3c7;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-links a i {
+        margin-right: 8px;
+        font-size: 12px;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent);
+        transform: translateX(5px);
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+        background: var(--accent);
+        color: var(--dark);
+        transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 20px;
+        text-align: center;
+        color: #bdc3c7;
+        font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+   .fade-in {
+opacity: 0;
+animation: fadeInUp 0.6s ease forwards;
+}
+
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .upload-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .portfolio-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 150px 0 80px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .service-card {
+        padding: 25px 20px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+
+    .upload-section {
+        padding: 25px;
+    }
+
+    .stat-item {
+        padding: 20px;
+    }
+
+    .stat-item h3 {
+        font-size: 30px;
+    }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.mb-0 { margin-bottom: 0; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-10 { gap: 10px; }
+.gap-20 { gap: 20px; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+.opacity-50 { opacity: 0.5; }
+.opacity-70 { opacity: 0.7; }
+.pointer { cursor: pointer; }
+.no-select { user-select: none; }
+.overflow-hidden { overflow: hidden; }
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.rounded { border-radius: 8px; }
+.rounded-lg { border-radius: 12px; }
+.rounded-xl { border-radius: 16px; }
+.shadow-sm { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.shadow-md { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.shadow-lg { box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+.border { border: 1px solid #e9ecef; }
+.border-primary { border-color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-light { background-color: var(--light); }
+.bg-white { background-color: white; }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-dark { color: var(--dark); }
+.text-light { color: var(--text-light); }
+.text-white { color: white; }
+.font-weight-bold { font-weight: bold; }
+.font-weight-600 { font-weight: 600; }
+.font-weight-700 { font-weight: 700; }
+.font-size-12 { font-size: 12px; }
+.font-size-14 { font-size: 14px; }
+.font-size-16 { font-size: 16px; }
+.font-size-18 { font-size: 18px; }
+.font-size-20 { font-size: 20px; }
+.font-size-24 { font-size: 24px; }
+.line-height-1 { line-height: 1; }
+.line-height-1-5 { line-height: 1.5; }
+.line-height-1-7 { line-height: 1.7; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.letter-spacing-1 { letter-spacing: 1px; }
+.letter-spacing-2 { letter-spacing: 2px; }
+.transition-all { transition: all 0.3s ease; }
+.transform-hover:hover { transform: translateY(-5px); }
+.scale-hover:hover { transform: scale(1.05); }
+.rotate-hover:hover { transform: rotate(5deg); }
+
+/* Print Styles */
+@media print {
+    .header,
+    .footer,
+    .cta-buttons,
+    .upload-section,
+    .portfolio-controls,
+    .modal {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .service-card,
+    .portfolio-item {
+        break-inside: avoid;
+    }
+}
+</style>
+
+
+</head>
+<body>
+   <header class="header">
+    <nav class="nav-container">
+        <!-- Option 1: Image only logo -->
+       <!-- <a href="#" class="logo">
+            <img src="Images/LOGO.jpg" alt="Lockson & Minors Co. Ltd">
+        </a> -->
+        
+        <!-- Option 2: Image + text logo (uncomment to use this instead) -->
+        
+        <a href="#" class="logo-with-text">
+            <img src="Images/LOGO.jpg" alt="Lockson & Minors Co. Ltd">
+            <span>Lockson & Minors Co. Ltd</span>
+        </a>
+        
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Engineering Excellence in Ghana</h1>
+        <p>Leading provider of innovative engineering solutions, construction services, and technical expertise across Ghana and West Africa</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="cta-button">Get Quote</a>
+            <a href="#portfolio" class="cta-button secondary">View Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <i class="fas fa-trophy"></i>
+            <h3>100+</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-users"></i>
+            <h3>10+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-handshake"></i>
+            <h3>100+</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-award"></i>
+            <h3>10+</h3>
+            <p>Awards Won</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+ <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle">Comprehensive engineering solutions tailored to meet your specific needs with quality and precision</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-fire-extinguisher service-icon"></i>
+                    <h3>Safety System Installations</h3>
+                    <p>Specialized in fire engineering, fire safety consultancy, fire risk assessment, fire extinguisher installation, emergency lighting, CCTV, access control systems, and fire suppression systems. Licensed by Ghana National Fire Service under Category(E).</p>
+                    <a href="#contact" class="service-link">Get Service <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gas-pump service-icon"></i>
+                    <h3>Gas Detector Calibration</h3>
+                    <p>Experts in calibration and servicing of industrial gas detectors and monitoring equipment. Quality products from UK and USA with on-site and off-site servicing capabilities. We also offer rentals of SCBA and authorized gas testing.</p>
+                    <a href="#contact" class="service-link">Get Service <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt service-icon"></i>
+                    <h3>Electrical Works</h3>
+                    <p>Industrial and domestic electrical installation, exhaust fans, electronic control systems. Complete package from design to maintenance across commercial, retail, and industrial sectors in Ghana.</p>
+                    <a href="#contact" class="service-link">Get Service <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-network-wired service-icon"></i>
+                    <h3>Telecommunications & Networking</h3>
+                    <p>Communication wiring, cabling installation, BMS/BAS systems, and networking solutions. Both LAN and WAN networking with professional evaluation and deployment.</p>
+                    <a href="#contact" class="service-link">Get Service <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search service-icon"></i>
+                    <h3>NDT Services</h3>
+                    <p>Non-destructive testing including ultrasonic testing, penetrant testing, pressure safety valves, flow meters, pigging systems, and comprehensive pipe management services.</p>
+                    <a href="#contact" class="service-link">Get Service <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools service-icon"></i>
+                    <h3>Additional Services</h3>
+                    <p>General goods supply, PPE equipment, industrial air compressor rental, vehicle rental, metal works, construction, welding, sandblasting, and marine refrigeration systems.</p>
+                    <a href="#contact" class="service-link">Get Service <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Portfolio Section -->
+<!-- Gallery Section with Manual Image Upload via HTML -->
+<section id="portfolio" class="portfolio" style="background: #f4f6f9; padding: 80px 0;">
+  <div class="container">
+    <h2 class="section-title">Our Portfolio</h2>
+    <p class="section-subtitle">Explore our diverse range of successfully completed projects across Ghana</p>
+
+    <!-- Portfolio Grid with Static HTML Images -->
+
+<div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
+      <div class="portfolio-item" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+        <img src="images/ndt-testing.jpg" alt="NDT Testing" style="width:100%; height: 200px; object-fit: cover;">
+        <h4 style="padding: 15px; background: #1e3c72; color: white; text-align: center;">NDT Testing</h4>
+      </div>
+
+     <div class="portfolio-item" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+        <img src="images/gas-detector-calibration.jpg" alt="Welding & Construction" style="width:100%; height: 200px; object-fit: cover;">
+        <h4 style="padding: 15px; background: #1e3c72; color: white; text-align: center;">Gas Detector Calibration</h4>
+      </div>
+      <div class="portfolio-item" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+        <img src="images/construction-welding.jpg" alt="Welding & Construction" style="width:100%; height: 200px; object-fit: cover;">
+        <h4 style="padding: 15px; background: #1e3c72; color: white; text-align: center;">Welding & Construction</h4>
+      </div>
+
+      <div class="portfolio-item" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+        <img src="images/telecommunications.jpg" alt="Telecommunications" style="width:100%; height: 200px; object-fit: cover;">
+        <h4 style="padding: 15px; background: #1e3c72; color: white; text-align: center;">Telecommunications</h4>
+      </div>
+
+       <div class="portfolio-item" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+        <img src="images/company-facility.jpg" alt="Welding & Construction" style="width:100%; height: 200px; object-fit: cover;">
+        <h4 style="padding: 15px; background: #1e3c72; color: white; text-align: center;">Company-facility</h4>
+      </div>
+
+      <div class="portfolio-item" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+        <img src="images/fire-alarm-system.jpg" alt="Fire Alarm System" style="width:100%; height: 200px; object-fit: cover;">
+        <h4 style="padding: 15px; background: #1e3c72; color: white; text-align: center;">Fire Alarm Systems</h4>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+
+  </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Lockson & Minors Co. Ltd</h2>
+                <p>With over 10 years of experience in the engineering and construction industry, Lockson & Minors Co. Ltd has established itself as a leading provider of innovative engineering solutions across Ghana and West Africa.</p>
+                <p>Our team of highly skilled engineers, architects, and construction professionals are committed to delivering exceptional results that exceed our clients' expectations. We combine technical expertise with creative problem-solving to tackle even the most complex engineering challenges.</p>
+                <p>From residential buildings to large-scale commercial and industrial projects, we have the knowledge, experience, and resources to bring your vision to life while maintaining the highest standards of quality and safety.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Certified Excellence</h4>
+                            <p>All our engineers are certified professionals with extensive industry experience</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Safety First</h4>
+                            <p>We prioritize safety in all our projects with comprehensive safety protocols</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Timely Delivery</h4>
+                            <p>We pride ourselves on completing projects on time and within budget</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Sustainable Solutions</h4>
+                            <p>We incorporate environmentally friendly practices in all our projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-hard-hat"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Ready to start your next project? Contact us today for a consultation</p>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-details">
+                        <h4>Address</h4>
+                        <p>Arthur Philbrick Street,  <br>Takoradi, Ghana</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+233553143949">+233 553143949</a></p>
+                        <p><a href="tel:+233312035443">+233 312035443</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@locksonminors.com">locksonandminors@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-details">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <h3>Send Message</h3>
+                
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Interest</label>
+                    <select id="service" name="service">
+                        <option value="">Select a service</option>
+                        <option value="civil">Civil Engineering</option>
+                        <option value="electrical">Electrical Engineering</option>
+                        <option value="mechanical">Mechanical Engineering</option>
+                        <option value="construction">Construction</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span id="submitText">Send Message</span>
+                    <div class="loading d-none" id="loadingSpinner"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Lockson & Minors Co. Ltd</h3>
+                <p>Leading engineering solutions provider in Ghana, delivering excellence in civil, electrical, and mechanical engineering services.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Safety system installations</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Gas Detector Calibration</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Electrical Engineering</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Telecommunications & Networking</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>NDT services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Additional services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i>Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Our Services</a></li>
+                    <li><a href="#portfolio"><i class="fas fa-chevron-right"></i>Portfolio</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-details">
+                       <p>Arthur Philbrick Street,  <br>Takoradi, Ghana</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-details">
+                        <p><a href="tel:+233553143949">+233 553143949</a></p>
+                        <p><a href="tel:+233312035443">+233 312035443</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        <p><a href="mailto:info@locksonminors.com">locksonandminors@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lockson & Minors Co. Ltd. All rights reserved. | Designed with excellence in engineering</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Portfolio Modal -->
+<div id="portfolioModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Project Details</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <img id="modalImage" src="" alt="Project Image">
+            <div class="modal-info">
+                <h4 id="modalProjectName">Project Name</h4>
+                <p id="modalDescription">Project description will appear here</p>
+                <div class="portfolio-category" id="modalCategory">Category</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Portfolio functionality
+    let portfolioItems = [];
+    let currentFilter = 'all';
+
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('active');
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(30, 60, 114, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)';
+            header.style.backdropFilter = 'none';
+        }
+    });
+
+    // Portfolio image upload
+    document.getElementById('imageInput').addEventListener('change', function(e) {
+        const files = e.target.files;
+        const category = document.getElementById('categorySelect').value;
+        
+        if (!category) {
+            alert('Please select a category first');
+            return;
+        }
+        
+        Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const portfolioItem = {
+                        id: Date.now() + Math.random(),
+                        src: e.target.result,
+                        category: category,
+                        name: `${category.charAt(0).toUpperCase() + category.slice(1)} Project`,
+                        description: `Professional ${category} project completed by our expert team.`
+                    };
+                    portfolioItems.push(portfolioItem);
+                    renderPortfolio();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Reset form
+        e.target.value = '';
+        document.getElementById('categorySelect').value = '';
+    });
+
+    // Portfolio filtering
+    document.querySelectorAll('.portfolio-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active button
+            document.querySelectorAll('.portfolio-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter portfolio
+            currentFilter = this.dataset.filter;
+            renderPortfolio();
+        });
+    });
+
+    // Render portfolio
+    
